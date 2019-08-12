@@ -71,17 +71,6 @@ return [
             'collation' => 'utf8_unicode_ci',
             'prefix' => '',
         ),
-        'your_heroku_mysql_connection' => array(
-            'driver' => 'mysql',
-            'host' => $host,
-            'database' => $database,
-            'username' => $username,
-            'password' => $password,
-            'charset' => 'utf8',
-            'collation' => 'utf8_unicode_ci',
-            'prefix' => '',
-        ),
-
         'pgsql' => [
             'driver' => 'pgsql',
             'host' => env('DB_HOST', '127.0.0.1'),

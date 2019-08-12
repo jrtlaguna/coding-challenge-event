@@ -9,6 +9,7 @@
       id="event-name"
       name="event-name"
       required
+      v-bind:disabled="loading"
       v-model="eventName"
       placeholder="eg. Fyre Festival">
       </b-form-input>
@@ -16,11 +17,11 @@
     <b-row>
     <b-col cols="6">
       <label>Date Start:</label>
-      <Datepicker v-model="dateFrom" full-month-name clearButton placeholder="Select Date"></Datepicker>
+      <Datepicker v-bind:disabled="loading" v-model="dateFrom" full-month-name clearButton placeholder="Select Date"></Datepicker>
     </b-col>
     <b-col cols="6">
       <label>Date End:</label>
-      <Datepicker required v-model="dateTo" full-month-name clearButton placeholder="Select Date"></Datepicker>
+      <Datepicker v-bind:disabled="loading" required v-model="dateTo" full-month-name clearButton placeholder="Select Date"></Datepicker>
     </b-col>
     </b-row>
     
@@ -36,7 +37,12 @@
       ></b-form-checkbox-group>
     </b-col>
     </b-form-group>
+    <b-row>
+    <b-col cols="9">
     <b-button block type="submit" variant="primary">Submit</b-button>
+    </b-col>
+    <b-col><b-spinner v-show=loading variant="info" label="Spinning"></b-spinner></b-col>
+    </b-row>
   </b-form>
   <br>
   <b-alert class="pt-15"
