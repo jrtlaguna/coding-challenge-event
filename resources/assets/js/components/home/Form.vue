@@ -51,6 +51,12 @@
       fade
       variant="warning"
       @dismiss-count-down="countDownChanged">Please input correct date fields.</b-alert>
+      <b-alert class="pt-15"
+      :show="dismissSuccess"
+      dismissible
+      fade
+      variant="info"
+      @dismiss-count-down="successChanged">Event successfully added.</b-alert>
 </div>
 </template>
 
@@ -86,6 +92,8 @@ export default {
       ],
       dismissSecs: 5,
       dismissCountDown: 0,
+      successSecs: 5,
+      dismissSuccess: 0,
       loading: false
     }
   },
@@ -133,6 +141,9 @@ export default {
       
       this.loading = false
 
+      if(res.status === 201){
+        this.showSuccess()
+        }
       this.$emit('add-event', newEvent)
 
 
@@ -142,6 +153,12 @@ export default {
     },
     showAlert() {
       this.dismissCountDown = this.dismissSecs
+    },
+    successChanged(dismissSuccess) {
+      this.dismissSuccess = dismissSuccess
+    },
+    showSuccess() {
+      this.dismissSuccess = this.successSecs
     },
     formatDate(date){
       return moment(date).format('YYYY-MM-DD')
