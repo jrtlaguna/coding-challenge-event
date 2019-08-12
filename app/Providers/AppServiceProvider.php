@@ -5,9 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Http\Resources\Json\Resource;
-use Symfony\Component\Routing\Generator\UrlGenerator;
-
-Illuminate\Routing\UrlGenerator;
+use Illuminate\Routing\UrlGenerator;
 
 class AppServiceProvider extends ServiceProvider
 {
