@@ -116,7 +116,7 @@ export default {
         arr.push(0, 1, 2, 3, 4, 5, 6)
       }
 
-      console.log(arr)
+      
 
       this.dateFrom = this.formatDate(this.dateFrom)
       this.dateTo = this.formatDate(this.dateTo)
@@ -141,9 +141,14 @@ export default {
       
       this.loading = false
 
-      if(res.status === 201){
+      const success = [200, 201]
+
+      if(success.includes(res.status)){
         this.showSuccess()
-        }
+      }
+      
+
+
       this.$emit('add-event', newEvent)
 
 
