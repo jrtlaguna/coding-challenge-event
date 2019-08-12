@@ -97,11 +97,18 @@ export default {
     },
     async submitEvent() {
       this.loading = true
+      const arr = this.weeks.map(Number)
+      if(arr.length === 0){
+        arr.push(0, 1, 2, 3, 4, 5, 6)
+      }
+
+      console.log(arr)
+
       this.dateFrom = this.formatDate(this.dateFrom)
       this.dateTo = this.formatDate(this.dateTo)
       const newEvent = {
         title: this.eventName,
-        daysOfWeek: this.weeks.map(Number),
+        daysOfWeek: arr,
         startRecur: this.dateFrom,
         endRecur: this.dateTo
       }

@@ -99839,7 +99839,7 @@ exports = module.exports = __webpack_require__(23)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -99955,17 +99955,25 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
     },
     submitEvent: function () {
       var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
-        var newEvent, event, res;
+        var arr, newEvent, event, res;
         return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 this.loading = true;
+                arr = this.weeks.map(Number);
+
+                if (arr.length === 0) {
+                  arr.push(0, 1, 2, 3, 4, 5, 6);
+                }
+
+                console.log(arr);
+
                 this.dateFrom = this.formatDate(this.dateFrom);
                 this.dateTo = this.formatDate(this.dateTo);
                 newEvent = {
                   title: this.eventName,
-                  daysOfWeek: this.weeks.map(Number),
+                  daysOfWeek: arr,
                   startRecur: this.dateFrom,
                   endRecur: this.dateTo
                 };
@@ -99975,14 +99983,14 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                   dateFrom: this.dateFrom,
                   weeks: this.weeks.toString()
                 };
-                _context.next = 7;
+                _context.next = 10;
                 return __WEBPACK_IMPORTED_MODULE_5_axios___default.a.post('api/event', event, {
                   'headers': {
                     'content-type': 'applcation/json'
                   }
                 });
 
-              case 7:
+              case 10:
                 res = _context.sent;
 
 
@@ -99990,7 +99998,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
                 this.$emit('add-event', newEvent);
 
-              case 10:
+              case 13:
               case 'end':
                 return _context.stop();
             }
