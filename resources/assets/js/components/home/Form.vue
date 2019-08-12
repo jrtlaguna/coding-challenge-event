@@ -141,14 +141,8 @@ export default {
       
       this.loading = false
 
-      const success = [200, 201]
-
-      if(success.includes(res.status)){
         this.showSuccess()
-      }
       
-
-
       this.$emit('add-event', newEvent)
 
 
