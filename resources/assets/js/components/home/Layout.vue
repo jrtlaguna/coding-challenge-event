@@ -1,15 +1,15 @@
 <template>
 <div>
   <Navbar></Navbar>
-<b-container fluid  >
+<b-container fluid>
   <b-row class="mt-5">
     <!-- formfield -->
-    <b-col cols="4" offset="1">
+    <b-col cols="4" sm="10" lg="4" offset="1">
       <Form v-on:add-event="renderEvent"></Form>
     </b-col>
 
 <!-- calendar -->
-    <b-col cols="6">
+    <b-col cols="6" xs="10" sm="10" lg="6" md="auto">
       <Calendar v-bind:event="event"></Calendar>
     </b-col>
   </b-row>
