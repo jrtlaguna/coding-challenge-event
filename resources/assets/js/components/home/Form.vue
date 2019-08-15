@@ -141,7 +141,10 @@ export default {
       
       this.loading = false
 
+      if([201, 202].includes(res.status))
+      {
         this.showSuccess()
+      }
       
       this.$emit('add-event', newEvent)
 
